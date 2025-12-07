@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Write Demo ==="
+puts "Press Ctrl+D to submit"
+puts
+
+# Basic multi-line input
+description = Gum.write(placeholder: "Enter description...", header: "Description")
+puts
+puts "You wrote:"
+puts description
+puts
+
+# With line numbers
+puts "Now with line numbers:"
+content = Gum.write(show_line_numbers: true, width: 60, height: 5)
+puts
+puts "Content:"
+puts content

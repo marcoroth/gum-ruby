@@ -1,0 +1,44 @@
+# Generated from lib/gum/commands/style.rb with RBS::Inline
+
+module Gum
+  # Apply styling to text
+  #
+  # @example Basic styling
+  #   styled = Gum.style("Hello", foreground: "212", bold: true)
+  #
+  # @example With border
+  #   box = Gum.style("Content", border: :double, padding: "1 2")
+  #
+  # @example Multiple lines
+  #   styled = Gum.style("Line 1", "Line 2", align: :center, width: 50)
+  class Style
+    BORDERS: Array[Symbol]
+
+    ALIGNMENTS: Array[Symbol]
+
+    # Apply styling to text
+    #
+    # @rbs *text: String -- text content to style (multiple strings become separate lines)
+    # @rbs foreground: String | Integer | nil -- text color (ANSI code, hex, or color name)
+    # @rbs background: String | Integer | nil -- background color (ANSI code, hex, or color name)
+    # @rbs border: Symbol | String | nil -- border style (:none, :hidden, :rounded, :double, :thick, :normal)
+    # @rbs border_foreground: String | Integer | nil -- border color
+    # @rbs border_background: String | Integer | nil -- border background color
+    # @rbs align: Symbol | String | nil -- text alignment (:left, :center, :right)
+    # @rbs height: Integer? -- fixed height in lines
+    # @rbs width: Integer? -- fixed width in characters
+    # @rbs margin: String | Array[Integer] | nil -- margin around the box ("1" or "1 2" or [1, 2, 1, 2])
+    # @rbs padding: String | Array[Integer] | nil -- padding inside the box ("1" or "1 2" or [1, 2, 1, 2])
+    # @rbs bold: bool? -- bold text
+    # @rbs italic: bool? -- italic text
+    # @rbs strikethrough: bool? -- strikethrough text
+    # @rbs underline: bool? -- underlined text
+    # @rbs faint: bool? -- faint/dim text
+    # @rbs return: String? -- styled text output
+    def self.call: (*String text, ?foreground: String | Integer | nil, ?background: String | Integer | nil, ?border: Symbol | String | nil, ?border_foreground: String | Integer | nil, ?border_background: String | Integer | nil, ?align: Symbol | String | nil, ?height: Integer?, ?width: Integer?, ?margin: String | Array[Integer] | nil, ?padding: String | Array[Integer] | nil, ?bold: bool?, ?italic: bool?, ?strikethrough: bool?, ?underline: bool?, ?faint: bool?) -> String?
+
+    # @rbs value: String | Integer | Array[Integer] | nil -- spacing value to format
+    # @rbs return: String? -- formatted spacing string
+    def self.format_spacing: (String | Integer | Array[Integer] | nil value) -> String?
+  end
+end

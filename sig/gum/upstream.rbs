@@ -1,0 +1,9 @@
+# Generated from lib/gum/upstream.rb with RBS::Inline
+
+module Gum
+  module Upstream
+    VERSION: ::String
+
+    NATIVE_PLATFORMS: untyped
+  end
+end

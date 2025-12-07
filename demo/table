@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Table Demo ==="
+puts
+
+# From array of arrays
+data = [
+  ["Alice", "30", "Engineer"],
+  ["Bob", "25", "Designer"],
+  ["Charlie", "35", "Manager"],
+  ["Diana", "28", "Developer"],
+]
+
+# Print table (no selection)
+puts "Print mode (no selection):"
+Gum.table(data, columns: ["Name", "Age", "Role"], print: true)
+puts
+
+# Select from table
+puts "Select a row:"
+selection = Gum.table(data, columns: ["Name", "Age", "Role"])
+puts "You selected: #{selection}"
+puts
+
+# With custom border
+puts "With rounded border:"
+Gum.table(data, columns: ["Name", "Age", "Role"], border: :rounded, print: true)
+puts
+
+# With custom colors
+puts "With custom colors:"
+Gum.table(
+  data,
+  columns: ["Name", "Age", "Role"],
+  border: :double,
+  border_foreground: "212",
+  header_foreground: "212",
+  cell_foreground: "250",
+  print: true
+)
+puts
+
+# From CSV string
+puts "From CSV string:"
+csv_data = <<~CSV
+  Product,Price,Stock
+  Apple,1.50,100
+  Banana,0.75,150
+  Cherry,3.00,50
+CSV
+Gum.table(csv_data, print: true)

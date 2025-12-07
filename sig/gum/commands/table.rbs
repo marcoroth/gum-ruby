@@ -1,0 +1,35 @@
+# Generated from lib/gum/commands/table.rb with RBS::Inline
+
+module Gum
+  # Display and select from tabular data
+  #
+  # @example From array of arrays
+  #   selection = Gum.table([["Alice", 30], ["Bob", 25]], columns: %w[Name Age])
+  #
+  # @example From CSV string
+  #   Gum.table(File.read("data.csv"))
+  #
+  # @example With custom separator
+  #   Gum.table(data, separator: "\t")
+  class Table
+    # Display tabular data and optionally allow row selection
+    #
+    # @rbs data: String | Array[Array[untyped]] -- CSV string or array of row arrays
+    # @rbs columns: Array[String]? -- column headers (required when data is array)
+    # @rbs separator: String? -- column separator (default: ",")
+    # @rbs widths: Array[Integer]? -- column widths
+    # @rbs height: Integer? -- table height in rows
+    # @rbs print: bool? -- print table without selection (non-interactive)
+    # @rbs border: Symbol | String | nil -- border style (:rounded, :thick, :normal, :hidden, :double, :none)
+    # @rbs border_foreground: String | Integer | nil -- border color
+    # @rbs border_background: String | Integer | nil -- border background color
+    # @rbs cell_foreground: String | Integer | nil -- cell text color
+    # @rbs cell_background: String | Integer | nil -- cell background color
+    # @rbs header_foreground: String | Integer | nil -- header text color
+    # @rbs header_background: String | Integer | nil -- header background color
+    # @rbs selected_foreground: String | Integer | nil -- selected row text color
+    # @rbs selected_background: String | Integer | nil -- selected row background color
+    # @rbs return: String? -- selected row data, or nil if cancelled
+    def self.call: (String | Array[Array[untyped]] data, ?columns: Array[String]?, ?separator: String?, ?widths: Array[Integer]?, ?height: Integer?, ?print: bool?, ?border: Symbol | String | nil, ?border_foreground: String | Integer | nil, ?border_background: String | Integer | nil, ?cell_foreground: String | Integer | nil, ?cell_background: String | Integer | nil, ?header_foreground: String | Integer | nil, ?header_background: String | Integer | nil, ?selected_foreground: String | Integer | nil, ?selected_background: String | Integer | nil) -> String?
+  end
+end

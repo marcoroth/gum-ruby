@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== File Picker Demo ==="
+puts
+
+# Start from current directory
+puts "Pick a file from current directory:"
+path = Gum.file
+puts "You selected: #{path}"
+puts
+
+# Start from specific directory
+puts "Pick a file from lib/:"
+path = Gum.file("lib")
+puts "You selected: #{path}"
+puts
+
+# Show hidden files
+puts "Pick a file (including hidden):"
+path = Gum.file(all: true)
+puts "You selected: #{path}"
+puts
+
+# Only directories
+puts "Pick a directory:"
+dir = Gum.file(directory: true)
+puts "You selected: #{dir}"

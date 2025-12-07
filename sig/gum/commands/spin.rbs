@@ -1,0 +1,55 @@
+# Generated from lib/gum/commands/spin.rb with RBS::Inline
+
+module Gum
+  # Display a spinner while running a command or block
+  #
+  # @example With shell command
+  #   Gum.spin("Installing...", command: "npm install")
+  #
+  # @example With Ruby block
+  #   result = Gum.spin("Processing...") do
+  #     # long running operation
+  #     expensive_computation
+  #   end
+  #
+  # @example Custom spinner type
+  #   Gum.spin("Loading...", spinner: :dot, command: "sleep 5")
+  class Spin
+    SPINNERS: Array[Symbol]
+
+    # Display a spinner while running a command or block
+    #
+    # @rbs title: String -- spinner title text (default: "Loading...")
+    # @rbs command: String? -- shell command to execute
+    # @rbs spinner: Symbol | String | nil -- spinner type (see SPINNERS constant)
+    # @rbs show_output: bool? -- show command stdout after completion
+    # @rbs show_error: bool? -- show command stderr after completion
+    # @rbs align: Symbol? -- alignment of spinner and title (:left, :right)
+    # @rbs timeout: Integer? -- timeout in seconds (0 = no timeout)
+    # @rbs spinner_style: Hash[Symbol, untyped]? -- spinner animation style
+    # @rbs title_style: Hash[Symbol, untyped]? -- title text style
+    # @rbs &block: ^() -> untyped | nil -- Ruby block to execute (alternative to command)
+    # @rbs return: String | untyped | nil -- command output or block result, nil if cancelled
+    def self.call: (?String title, ?command: String?, ?spinner: Symbol | String | nil, ?show_output: bool?, ?show_error: bool?, ?align: Symbol?, ?timeout: Integer?, ?spinner_style: Hash[Symbol, untyped]?, ?title_style: Hash[Symbol, untyped]?) ?{ (?) -> untyped } -> (String | untyped | nil)
+
+    # @rbs title: String -- spinner title text
+    # @rbs command: String -- shell command to execute
+    # @rbs spinner: Symbol | String | nil -- spinner type
+    # @rbs show_output: bool? -- show command stdout
+    # @rbs show_error: bool? -- show command stderr
+    # @rbs align: Symbol? -- alignment of spinner
+    # @rbs timeout: Integer? -- timeout in seconds
+    # @rbs spinner_style: Hash[Symbol, untyped]? -- spinner animation style
+    # @rbs title_style: Hash[Symbol, untyped]? -- title text style
+    # @rbs return: bool? -- true if command succeeded, false/nil otherwise
+    def self.run_with_command: (String title, command: String, spinner: Symbol | String | nil, show_output: bool?, show_error: bool?, align: Symbol?, timeout: Integer?, spinner_style: Hash[Symbol, untyped]?, title_style: Hash[Symbol, untyped]?) -> bool?
+
+    # @rbs title: String -- spinner title text
+    # @rbs spinner: Symbol | String | nil -- spinner type
+    # @rbs spinner_style: Hash[Symbol, untyped]? -- spinner animation style
+    # @rbs title_style: Hash[Symbol, untyped]? -- title text style
+    # @rbs &block: ^() -> untyped -- Ruby block to execute
+    # @rbs return: untyped -- block result
+    def self.run_with_block: (String title, spinner: Symbol | String | nil, spinner_style: Hash[Symbol, untyped]?, title_style: Hash[Symbol, untyped]?) ?{ (?) -> untyped } -> untyped
+  end
+end

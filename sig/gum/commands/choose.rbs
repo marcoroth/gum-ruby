@@ -1,0 +1,42 @@
+# Generated from lib/gum/commands/choose.rb with RBS::Inline
+
+module Gum
+  # Choose an option from a list of choices
+  #
+  # @example Single selection with array
+  #   color = Gum.choose(%w[red green blue])
+  #
+  # @example Single selection with splat
+  #   color = Gum.choose("red", "green", "blue")
+  #
+  # @example Multiple selection
+  #   colors = Gum.choose(%w[red green blue], limit: 2)
+  #
+  # @example Unlimited selection
+  #   colors = Gum.choose(%w[red green blue], no_limit: true)
+  #
+  # @example With header and custom height
+  #   choice = Gum.choose(options, header: "Pick one:", height: 10)
+  class Choose
+    # Choose from a list of options
+    #
+    # @rbs *items: Array[String] | String -- list of choices to display (array or splat)
+    # @rbs limit: Integer? -- maximum number of items that can be selected (1 = single select)
+    # @rbs no_limit: bool -- allow unlimited selections (use tab/ctrl+space to select)
+    # @rbs ordered: bool? -- maintain selection order
+    # @rbs height: Integer? -- height of the list
+    # @rbs cursor: String? -- cursor character (default: ">")
+    # @rbs header: String? -- header text displayed above choices
+    # @rbs cursor_prefix: String? -- prefix for the cursor line
+    # @rbs selected_prefix: String? -- prefix for selected items (default: "✓")
+    # @rbs unselected_prefix: String? -- prefix for unselected items (default: "○")
+    # @rbs selected: Array[String]? -- items to pre-select
+    # @rbs timeout: Integer? -- timeout in seconds (0 = no timeout)
+    # @rbs cursor_style: Hash[Symbol, untyped]? -- cursor style options
+    # @rbs header_style: Hash[Symbol, untyped]? -- header text style
+    # @rbs item_style: Hash[Symbol, untyped]? -- item text style
+    # @rbs selected_style: Hash[Symbol, untyped]? -- selected item style
+    # @rbs return: String | Array[String] | nil -- selected item(s), or nil if cancelled
+    def self.call: (*Array[String] | String items, ?limit: Integer?, ?no_limit: bool, ?ordered: bool?, ?height: Integer?, ?cursor: String?, ?header: String?, ?cursor_prefix: String?, ?selected_prefix: String?, ?unselected_prefix: String?, ?selected: Array[String]?, ?timeout: Integer?, ?cursor_style: Hash[Symbol, untyped]?, ?header_style: Hash[Symbol, untyped]?, ?item_style: Hash[Symbol, untyped]?, ?selected_style: Hash[Symbol, untyped]?) -> (String | Array[String] | nil)
+  end
+end

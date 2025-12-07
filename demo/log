@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Log Demo ==="
+puts
+
+# Basic logging at different levels
+puts "Different log levels:"
+Gum.log("Debug information", level: :debug)
+Gum.log("Application started", level: :info)
+Gum.log("Disk space low", level: :warn)
+Gum.log("Connection failed", level: :error)
+Gum.log("System crash", level: :fatal)
+puts
+
+# Structured logging with key-value pairs
+puts "Structured logging:"
+Gum.log("User logged in", level: :info, user_id: 123, email: "user@example.com")
+Gum.log("Request completed", level: :info, method: "GET", path: "/api/users", duration_ms: 45)
+Gum.log("Database query", level: :debug, table: "users", rows: 100)
+puts
+
+# With timestamp formats
+puts "With timestamps:"
+Gum.log("RFC822 timestamp", level: :info, time: :rfc822)
+Gum.log("Kitchen timestamp", level: :info, time: :kitchen)
+Gum.log("DateTime timestamp", level: :info, time: :datetime)
+puts
+
+# Shorthand methods
+puts "Shorthand methods:"
+Gum::Log.debug("Debugging something")
+Gum::Log.info("Information message")
+Gum::Log.warn("Warning message")
+Gum::Log.error("Error occurred", code: 500, reason: "Internal Server Error")
+puts
+
+# Simulated application logging
+puts "Simulated app flow:"
+Gum::Log.info("Starting application", version: "1.0.0")
+Gum::Log.debug("Loading configuration", file: "config.yml")
+Gum::Log.info("Connected to database", host: "localhost", port: 5432)
+Gum::Log.warn("Cache miss", key: "user:123")
+Gum::Log.info("Request received", method: "POST", path: "/api/users")
+Gum::Log.error("Validation failed", field: "email", message: "invalid format")
+Gum::Log.info("Shutting down", uptime: "2h 30m")

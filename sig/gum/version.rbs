@@ -1,0 +1,5 @@
+# Generated from lib/gum/version.rb with RBS::Inline
+
+module Gum
+  VERSION: ::String
+end

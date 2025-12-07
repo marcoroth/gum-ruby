@@ -1,0 +1,48 @@
+# Generated from lib/gum/commands/filter.rb with RBS::Inline
+
+module Gum
+  # Filter items from a list with fuzzy matching
+  #
+  # @example Single selection filter with array
+  #   file = Gum.filter(Dir.glob("*"))
+  #
+  # @example Single selection filter with splat
+  #   file = Gum.filter("file1.rb", "file2.rb", "file3.rb")
+  #
+  # @example Multiple selection filter
+  #   files = Gum.filter(Dir.glob("*"), limit: 5)
+  #
+  # @example With placeholder and height
+  #   selection = Gum.filter(items, placeholder: "Search...", height: 20)
+  class Filter
+    # Filter a list with fuzzy matching
+    #
+    # @rbs *items: Array[String] | String -- list of items to filter (array or splat)
+    # @rbs limit: Integer? -- maximum number of items that can be selected
+    # @rbs no_limit: bool -- allow unlimited selections (use tab/ctrl+space to select)
+    # @rbs height: Integer? -- height of the list
+    # @rbs width: Integer? -- width of the filter input
+    # @rbs placeholder: String? -- placeholder text for the filter input
+    # @rbs prompt: String? -- prompt string shown before input
+    # @rbs value: String? -- initial filter value
+    # @rbs header: String? -- header text displayed above the list
+    # @rbs indicator: String? -- character for selected item indicator
+    # @rbs selected_prefix: String? -- prefix for selected items
+    # @rbs unselected_prefix: String? -- prefix for unselected items
+    # @rbs match_prefix: String? -- prefix for matched text
+    # @rbs fuzzy: bool? -- enable fuzzy matching (default: true)
+    # @rbs sort: bool? -- sort results by match score (default: true)
+    # @rbs strict: bool? -- require exact match
+    # @rbs reverse: bool? -- reverse the order of results
+    # @rbs timeout: Integer? -- timeout in seconds (0 = no timeout)
+    # @rbs header_style: Hash[Symbol, untyped]? -- header text style
+    # @rbs text_style: Hash[Symbol, untyped]? -- text style for items
+    # @rbs cursor_text_style: Hash[Symbol, untyped]? -- style for cursor line text
+    # @rbs match_style: Hash[Symbol, untyped]? -- style for matched characters
+    # @rbs placeholder_style: Hash[Symbol, untyped]? -- placeholder text style
+    # @rbs prompt_style: Hash[Symbol, untyped]? -- prompt text style
+    # @rbs indicator_style: Hash[Symbol, untyped]? -- indicator character style
+    # @rbs return: String | Array[String] | nil -- selected item(s), or nil if cancelled
+    def self.call: (*Array[String] | String items, ?limit: Integer?, ?no_limit: bool, ?height: Integer?, ?width: Integer?, ?placeholder: String?, ?prompt: String?, ?value: String?, ?header: String?, ?indicator: String?, ?selected_prefix: String?, ?unselected_prefix: String?, ?match_prefix: String?, ?fuzzy: bool?, ?sort: bool?, ?strict: bool?, ?reverse: bool?, ?timeout: Integer?, ?header_style: Hash[Symbol, untyped]?, ?text_style: Hash[Symbol, untyped]?, ?cursor_text_style: Hash[Symbol, untyped]?, ?match_style: Hash[Symbol, untyped]?, ?placeholder_style: Hash[Symbol, untyped]?, ?prompt_style: Hash[Symbol, untyped]?, ?indicator_style: Hash[Symbol, untyped]?) -> (String | Array[String] | nil)
+  end
+end

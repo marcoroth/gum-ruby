@@ -1,0 +1,38 @@
+# Generated from lib/gum/commands/file.rb with RBS::Inline
+
+module Gum
+  # Pick a file from a folder
+  #
+  # @example Basic file picker
+  #   path = Gum.file
+  #
+  # @example Start from specific directory
+  #   path = Gum.file(directory: "~/Documents")
+  #
+  # @example Show hidden files
+  #   path = Gum.file(all: true)
+  #
+  # @example Only show directories
+  #   dir = Gum.file(directory_only: true)
+  class FilePicker
+    # Pick a file from the filesystem
+    #
+    # @rbs path: String? -- starting directory path
+    # @rbs cursor: String? -- cursor character
+    # @rbs all: bool? -- show hidden files and directories
+    # @rbs file: bool? -- allow file selection (default: true)
+    # @rbs directory: bool? -- allow directory selection (default: false)
+    # @rbs directory_only: bool -- only allow directory selection (convenience option)
+    # @rbs height: Integer? -- height of the file picker
+    # @rbs timeout: Integer? -- timeout in seconds (0 = no timeout)
+    # @rbs cursor_style: Hash[Symbol, untyped]? -- cursor style options
+    # @rbs symlink_style: Hash[Symbol, untyped]? -- symlink text style
+    # @rbs directory_style: Hash[Symbol, untyped]? -- directory text style
+    # @rbs file_style: Hash[Symbol, untyped]? -- file text style
+    # @rbs permissions_style: Hash[Symbol, untyped]? -- permissions text style
+    # @rbs selected_style: Hash[Symbol, untyped]? -- selected item style
+    # @rbs file_size_style: Hash[Symbol, untyped]? -- file size text style
+    # @rbs return: String? -- selected file path, or nil if cancelled
+    def self.call: (?String? path, ?cursor: String?, ?all: bool?, ?file: bool?, ?directory: bool?, ?directory_only: bool, ?height: Integer?, ?timeout: Integer?, ?cursor_style: Hash[Symbol, untyped]?, ?symlink_style: Hash[Symbol, untyped]?, ?directory_style: Hash[Symbol, untyped]?, ?file_style: Hash[Symbol, untyped]?, ?permissions_style: Hash[Symbol, untyped]?, ?selected_style: Hash[Symbol, untyped]?, ?file_size_style: Hash[Symbol, untyped]?) -> String?
+  end
+end

@@ -1,0 +1,30 @@
+# Generated from lib/gum/commands/confirm.rb with RBS::Inline
+
+module Gum
+  # Ask for user confirmation
+  #
+  # @example Basic confirmation
+  #   if Gum.confirm("Delete file?")
+  #     File.delete(path)
+  #   end
+  #
+  # @example With default value
+  #   proceed = Gum.confirm("Continue?", default: true)
+  #
+  # @example With custom button labels
+  #   Gum.confirm("Save changes?", affirmative: "Save", negative: "Discard")
+  class Confirm
+    # Prompt for yes/no confirmation
+    #
+    # @rbs prompt: String -- the confirmation prompt
+    # @rbs default: bool? -- default value (true = yes, false = no)
+    # @rbs affirmative: String? -- text for affirmative button (default: "Yes")
+    # @rbs negative: String? -- text for negative button (default: "No")
+    # @rbs timeout: Integer? -- timeout in seconds (0 = no timeout)
+    # @rbs prompt_style: Hash[Symbol, untyped]? -- prompt text style options
+    # @rbs selected_style: Hash[Symbol, untyped]? -- selected button style options
+    # @rbs unselected_style: Hash[Symbol, untyped]? -- unselected button style options
+    # @rbs return: bool -- true if confirmed, false if rejected
+    def self.call: (?String prompt, ?default: bool?, ?affirmative: String?, ?negative: String?, ?timeout: Integer?, ?prompt_style: Hash[Symbol, untyped]?, ?selected_style: Hash[Symbol, untyped]?, ?unselected_style: Hash[Symbol, untyped]?) -> bool
+  end
+end

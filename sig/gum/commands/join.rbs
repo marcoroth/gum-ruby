@@ -1,0 +1,24 @@
+# Generated from lib/gum/commands/join.rb with RBS::Inline
+
+module Gum
+  # Join text blocks horizontally or vertically
+  #
+  # @example Horizontal join (default)
+  #   combined = Gum.join(box1, box2)
+  #
+  # @example Vertical join
+  #   stacked = Gum.join(box1, box2, vertical: true)
+  #
+  # @example With alignment
+  #   aligned = Gum.join(box1, box2, vertical: true, align: :center)
+  class Join
+    # Join text blocks together
+    #
+    # @rbs *texts: String -- text blocks to join (usually styled with Gum.style)
+    # @rbs vertical: bool -- stack blocks vertically (default: false, horizontal)
+    # @rbs horizontal: bool -- place blocks side by side (default)
+    # @rbs align: Symbol | String | nil -- alignment (:left, :center, :right for vertical; :top, :middle, :bottom for horizontal)
+    # @rbs return: String? -- combined text output
+    def self.call: (*String texts, ?vertical: bool, ?horizontal: bool, ?align: Symbol | String | nil) -> String?
+  end
+end

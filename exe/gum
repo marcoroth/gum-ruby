@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Because rubygems shims assume a gem's executables are Ruby scripts,
+# we need this wrapper to find and exec the native gum binary.
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+
+require "gum"
+
+exec(Gum.executable, *ARGV)

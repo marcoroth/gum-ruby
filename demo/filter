@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Filter Demo ==="
+puts
+
+# Filter Ruby files in the project
+files = Dir.glob("**/*.rb")
+puts "Filter Ruby files (#{files.length} files):"
+selected = Gum.filter(files, placeholder: "Search files...")
+puts "You selected: #{selected}"
+puts
+
+# Multiple selection
+puts "Select multiple files (limit 3):"
+selected = Gum.filter(files, limit: 3, placeholder: "Search...")
+puts "You selected: #{selected.inspect}"
+puts
+
+# Exact matching (no fuzzy)
+puts "Exact search (no fuzzy matching):"
+items = ["apple", "application", "apply", "banana", "band", "bandana", "cherry", "charm"]
+result = Gum.filter(items, fuzzy: false, placeholder: "Type exact match...")
+puts "You selected: #{result}"

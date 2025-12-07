@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Confirm Demo ==="
+puts
+
+# Basic confirmation
+if Gum.confirm("Do you like Ruby?")
+  puts "Great choice!"
+else
+  puts "That's okay too!"
+end
+puts
+
+# With default value (yes)
+if Gum.confirm("Continue with defaults?", default: true)
+  puts "Continuing..."
+else
+  puts "Cancelled."
+end
+puts
+
+# Custom button labels
+if Gum.confirm("Save your changes?", affirmative: "Save", negative: "Discard")
+  puts "Changes saved!"
+else
+  puts "Changes discarded."
+end
+puts
+
+# Timeout example
+puts "This will timeout in 5 seconds (defaults to No):"
+if Gum.confirm("Quick decision?", timeout: 5, default: false)
+  puts "You said yes!"
+else
+  puts "Timed out or said no."
+end

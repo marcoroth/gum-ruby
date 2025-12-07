@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Style Demo ==="
+puts
+
+# Basic styling
+styled = Gum.style("Hello World", foreground: "212", bold: true)
+puts styled
+puts
+
+# With border
+box = Gum.style("Content in a box", border: :double, padding: "1 2")
+puts box
+puts
+
+# Multiple lines with alignment
+styled = Gum.style("Line 1", "Line 2", "Line 3", align: :center, width: 30, border: :rounded)
+puts styled
+puts
+
+# Full styling example
+styled = Gum.style(
+  "Bubble Gum",
+  foreground: "212",
+  border: :double,
+  border_foreground: "212",
+  align: :center,
+  width: 40,
+  margin: "1 2",
+  padding: "1 3"
+)
+puts styled
+puts
+
+# Different border types
+[:none, :rounded, :double, :thick, :normal, :hidden].each do |border|
+  box = Gum.style("Border: #{border}", border: border, padding: "0 1")
+  puts box
+end
+puts
+
+# Text effects
+puts Gum.style("Bold", bold: true)
+puts Gum.style("Italic", italic: true)
+puts Gum.style("Underline", underline: true)
+puts Gum.style("Strikethrough", strikethrough: true)
+puts Gum.style("Faint", faint: true)

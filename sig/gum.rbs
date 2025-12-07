@@ -1,0 +1,79 @@
+# Generated from lib/gum.rb with RBS::Inline
+
+module Gum
+  GEM_NAME: ::String
+
+  DEFAULT_DIR: untyped
+
+  class Error < StandardError
+  end
+
+  class ExecutableNotFoundException < Error
+  end
+
+  class UnsupportedPlatformException < Error
+  end
+
+  class DirectoryNotFoundException < Error
+  end
+
+  def self.execute: (*untyped args) -> untyped
+
+  def self.platform: () -> untyped
+
+  def self.version: () -> untyped
+
+  def self.executable: (?exe_path: untyped) -> untyped
+
+  # Prompt for single-line input
+  # @see Gum::Input#call
+  def self.input: (**untyped) -> untyped
+
+  # Prompt for multi-line text input
+  # @see Gum::Write#call
+  def self.write: (**untyped) -> untyped
+
+  # Choose from a list of options
+  # @see Gum::Choose#call
+  def self.choose: (untyped items, **untyped) -> untyped
+
+  # Filter items with fuzzy matching
+  # @see Gum::Filter#call
+  def self.filter: (untyped items, **untyped) -> untyped
+
+  # Prompt for confirmation
+  # @see Gum::Confirm#call
+  def self.confirm: (?untyped prompt, **untyped) -> untyped
+
+  # Pick a file from the filesystem
+  # @see Gum::FilePicker#call
+  def self.file: (?untyped path, **untyped) -> untyped
+
+  # Display content in a scrollable pager
+  # @see Gum::Pager#call
+  def self.pager: (untyped content, **untyped) -> untyped
+
+  # Display a spinner while running a command or block
+  # @see Gum::Spin#call
+  def self.spin: (?untyped title, **untyped) ?{ (?) -> untyped } -> untyped
+
+  # Apply styling to text
+  # @see Gum::Style#call
+  def self.style: (*untyped text, **untyped) -> untyped
+
+  # Join text blocks together
+  # @see Gum::Join#call
+  def self.join: (*untyped texts, **untyped) -> untyped
+
+  # Format text (markdown, code, template, emoji)
+  # @see Gum::Format#call
+  def self.format: (*untyped text, **untyped) -> untyped
+
+  # Display and select from tabular data
+  # @see Gum::Table#call
+  def self.table: (untyped data, **untyped) -> untyped
+
+  # Log a message
+  # @see Gum::Log#call
+  def self.log: (untyped message, **untyped) -> untyped
+end

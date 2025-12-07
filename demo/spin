@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Spin Demo ==="
+puts
+
+# With shell command
+puts "Running shell command with spinner:"
+Gum.spin("Sleeping for 2 seconds...", command: "sleep 2")
+puts "Done!"
+puts
+
+# With Ruby block
+puts "Running Ruby block with spinner:"
+
+result = Gum.spin("Computing...") do
+  sleep 2
+  "Computed!"
+end
+
+puts "Result: #{result}"
+puts
+
+# Different spinner types
+spinners = [:line, :dot, :minidot, :jump, :pulse, :points, :globe, :moon, :monkey]
+
+spinners.each do |spinner|
+  puts "Spinner: #{spinner}"
+  Gum.spin("Loading with #{spinner}...", spinner: spinner, command: "sleep 1")
+end
+
+puts
+puts "All spinners demonstrated!"

@@ -1,0 +1,23 @@
+# Generated from lib/gum/command.rb with RBS::Inline
+
+module Gum
+  module Command
+    def self?.run: (*untyped, ?input: untyped, ?interactive: untyped) -> untyped
+
+    def self?.run_non_interactive: (*untyped args, input: untyped) -> untyped
+
+    def self?.run_interactive: (*untyped args) -> untyped
+
+    def self?.run_interactive_with_input: (*untyped args, input: untyped) -> untyped
+
+    def self?.run_display_only: (*untyped args, input: untyped) -> untyped
+
+    def self?.run_with_status: (*untyped args, ?input: untyped) -> untyped
+
+    def self?.build_args: (untyped command, *untyped positional, **untyped options) -> untyped
+
+    def self?.add_style_args: (untyped args, untyped flag, untyped style_hash) -> untyped
+
+    def self?.flag_supports_negation?: (untyped command, untyped flag) -> untyped
+  end
+end

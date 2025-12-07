@@ -1,0 +1,35 @@
+# Generated from lib/gum/commands/write.rb with RBS::Inline
+
+module Gum
+  # Prompt for multi-line text input
+  #
+  # @example Basic multi-line input
+  #   description = Gum.write(placeholder: "Enter description...")
+  #
+  # @example With dimensions
+  #   notes = Gum.write(width: 80, height: 10, header: "Notes")
+  class Write
+    # Prompt for multi-line text input (Ctrl+D to submit)
+    #
+    # @rbs placeholder: String? -- placeholder text shown when empty
+    # @rbs prompt: String? -- prompt string shown at the start of each line
+    # @rbs value: String? -- initial value for the text area
+    # @rbs char_limit: Integer? -- maximum number of characters allowed
+    # @rbs width: Integer? -- width of the text area
+    # @rbs height: Integer? -- height of the text area in lines
+    # @rbs header: String? -- header text displayed above the input
+    # @rbs show_cursor_line: bool? -- highlight the line with the cursor
+    # @rbs show_line_numbers: bool? -- display line numbers
+    # @rbs timeout: Integer? -- timeout in seconds (0 = no timeout)
+    # @rbs cursor: Hash[Symbol, untyped]? -- cursor style options
+    # @rbs cursor_line: Hash[Symbol, untyped]? -- cursor line highlight style
+    # @rbs placeholder_style: Hash[Symbol, untyped]? -- placeholder text style
+    # @rbs prompt_style: Hash[Symbol, untyped]? -- prompt text style
+    # @rbs end_of_buffer: Hash[Symbol, untyped]? -- end of buffer character style
+    # @rbs line_number: Hash[Symbol, untyped]? -- line number style
+    # @rbs header_style: Hash[Symbol, untyped]? -- header text style
+    # @rbs base: Hash[Symbol, untyped]? -- base text style
+    # @rbs return: String? -- the entered text, or nil if cancelled
+    def self.call: (?placeholder: String?, ?prompt: String?, ?value: String?, ?char_limit: Integer?, ?width: Integer?, ?height: Integer?, ?header: String?, ?show_cursor_line: bool?, ?show_line_numbers: bool?, ?timeout: Integer?, ?cursor: Hash[Symbol, untyped]?, ?cursor_line: Hash[Symbol, untyped]?, ?placeholder_style: Hash[Symbol, untyped]?, ?prompt_style: Hash[Symbol, untyped]?, ?end_of_buffer: Hash[Symbol, untyped]?, ?line_number: Hash[Symbol, untyped]?, ?header_style: Hash[Symbol, untyped]?, ?base: Hash[Symbol, untyped]?) -> String?
+  end
+end

@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Input Demo ==="
+puts
+
+# Basic input
+name = Gum.input(placeholder: "Enter your name")
+puts "You entered: #{name}"
+puts
+
+# With default value and custom prompt
+email = Gum.input(value: "user@", prompt: "> ", placeholder: "email")
+puts "Email: #{email}"
+puts
+
+# Password input (masked)
+password = Gum.input(password: true, placeholder: "Enter password")
+puts "Password entered (#{password&.length || 0} characters)"
+puts
+
+# With character limit
+code = Gum.input(placeholder: "Enter 6-digit code", char_limit: 6)
+puts "Code: #{code}"

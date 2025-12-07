@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Join Demo ==="
+puts
+
+# Create some styled boxes
+box_a = Gum.style("A", border: :rounded, padding: "1 3")
+box_b = Gum.style("B", border: :rounded, padding: "1 3")
+box_c = Gum.style("C", border: :rounded, padding: "1 3")
+
+# Horizontal join (default)
+puts "Horizontal join:"
+combined = Gum.join(box_a, box_b, box_c)
+puts combined
+puts
+
+# Vertical join
+puts "Vertical join:"
+stacked = Gum.join(box_a, box_b, box_c, vertical: true)
+puts stacked
+puts
+
+# With alignment
+puts "Vertical join with center alignment:"
+box1 = Gum.style("Short", border: :rounded, padding: "0 1")
+box2 = Gum.style("A longer box", border: :rounded, padding: "0 1")
+box3 = Gum.style("Medium", border: :rounded, padding: "0 1")
+
+aligned = Gum.join(box1, box2, box3, vertical: true, align: :center)
+puts aligned
+puts
+
+# Complex layout
+puts "Complex layout:"
+left = Gum.style("Left\nPanel", border: :double, padding: "1 2", height: 5)
+right_top = Gum.style("Top Right", border: :rounded, padding: "0 2")
+right_bottom = Gum.style("Bottom Right", border: :rounded, padding: "0 2")
+
+right_column = Gum.join(right_top, right_bottom, vertical: true)
+layout = Gum.join(left, right_column)
+puts layout

@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Format Demo ==="
+puts
+
+# Markdown
+puts "Markdown formatting:"
+markdown = <<~MD
+  # Hello World
+
+  This is **bold** and this is *italic*.
+
+  ## Features
+  - Item 1
+  - Item 2
+  - Item 3
+
+  > A blockquote
+
+  `inline code`
+MD
+puts Gum.format(markdown, type: :markdown)
+puts
+
+# Emoji
+puts "Emoji conversion:"
+puts Gum.format("I :heart: Ruby :gem:", type: :emoji)
+puts Gum.format(":rocket: Launch! :star: :sparkles:", type: :emoji)
+puts
+
+# Template
+puts "Template formatting:"
+puts Gum.format('{{ Bold "Hello" }} {{ Italic "World" }}', type: :template)
+puts Gum.format('{{ Color "212" "0" " Pink Text " }}', type: :template)
+puts
+
+# Shorthand methods
+puts "Shorthand methods:"
+puts Gum::Format.markdown("**Bold** and *italic*")
+puts Gum::Format.emoji(":thumbsup: Nice!")

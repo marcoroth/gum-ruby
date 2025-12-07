@@ -6,3 +6,11 @@
 /pkg/
 /spec/reports/
 /tmp/
+
+/exe/arm64-darwin/
+/exe/x86_64-darwin/
+/exe/arm64-linux/
+/exe/aarch64-linux/
+/exe/x86_64-linux/
+
+*.gem

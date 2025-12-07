@@ -1,0 +1,56 @@
+# Generated from lib/gum/commands/log.rb with RBS::Inline
+
+module Gum
+  # Log messages with different levels and formatting
+  #
+  # @example Basic logging
+  #   Gum.log("Application started", level: :info)
+  #
+  # @example Structured logging with key-value pairs
+  #   Gum.log("User created", level: :info, user_id: 123, email: "user@example.com")
+  #
+  # @example With timestamp
+  #   Gum.log("Error occurred", level: :error, time: :rfc822)
+  class Log
+    LEVELS: Array[Symbol]
+
+    TIME_FORMATS: Array[Symbol]
+
+    # Log a message
+    #
+    # @rbs message: String -- log message text
+    # @rbs level: Symbol | String | nil -- log level (:debug, :info, :warn, :error, :fatal, :none)
+    # @rbs time: Symbol | String | nil -- time format (:rfc822, :rfc3339, :kitchen, etc.) or custom Go time format
+    # @rbs structured: bool? -- output structured log format (key=value pairs)
+    # @rbs formatter: Symbol | String | nil -- log formatter (:text, :json, :logfmt)
+    # @rbs prefix: String? -- log message prefix
+    # @rbs **fields: untyped -- additional key-value fields for structured logging
+    # @rbs return: String? -- formatted log output
+    def self.call: (String message, ?level: Symbol | String | nil, ?time: Symbol | String | nil, ?structured: bool?, ?formatter: Symbol | String | nil, ?prefix: String?, **untyped fields) -> String?
+
+    # @rbs message: String -- log message text
+    # @rbs **fields: untyped -- additional key-value fields
+    # @rbs return: String? -- formatted debug log output
+    def self.debug: (String message, **untyped fields) -> String?
+
+    # @rbs message: String -- log message text
+    # @rbs **fields: untyped -- additional key-value fields
+    # @rbs return: String? -- formatted info log output
+    def self.info: (String message, **untyped fields) -> String?
+
+    # @rbs message: String -- log message text
+    # @rbs **fields: untyped -- additional key-value fields
+    # @rbs return: String? -- formatted warn log output
+    def self.warn: (String message, **untyped fields) -> String?
+
+    # @rbs message: String -- log message text
+    # @rbs **fields: untyped -- additional key-value fields
+    # @rbs return: String? -- formatted error log output
+    def self.error: (String message, **untyped fields) -> String?
+
+    # @rbs message: String -- log message text
+    # @rbs **fields: untyped -- additional key-value fields
+    # @rbs return: String? -- formatted fatal log output
+    def self.fatal: (String message, **untyped fields) -> String?
+  end
+end

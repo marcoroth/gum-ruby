@@ -1,0 +1,28 @@
+# Generated from lib/gum/commands/pager.rb with RBS::Inline
+
+module Gum
+  # Scroll through content in a pager
+  #
+  # @example View file content
+  #   Gum.pager(File.read("README.md"))
+  #
+  # @example With line numbers
+  #   Gum.pager(content, show_line_numbers: true)
+  #
+  # @example Soft wrap long lines
+  #   Gum.pager(content, soft_wrap: true)
+  class Pager
+    # Display content in a scrollable pager
+    #
+    # @rbs content: String -- content to display in the pager
+    # @rbs show_line_numbers: bool? -- display line numbers
+    # @rbs soft_wrap: bool? -- wrap long lines instead of horizontal scrolling
+    # @rbs timeout: Integer? -- timeout in seconds (0 = no timeout)
+    # @rbs help_style: Hash[Symbol, untyped]? -- help text style
+    # @rbs line_number_style: Hash[Symbol, untyped]? -- line number style
+    # @rbs match_style: Hash[Symbol, untyped]? -- search match style
+    # @rbs match_highlight_style: Hash[Symbol, untyped]? -- current search match highlight style
+    # @rbs return: void
+    def self.call: (String content, ?show_line_numbers: bool?, ?soft_wrap: bool?, ?timeout: Integer?, ?help_style: Hash[Symbol, untyped]?, ?line_number_style: Hash[Symbol, untyped]?, ?match_style: Hash[Symbol, untyped]?, ?match_highlight_style: Hash[Symbol, untyped]?) -> void
+  end
+end

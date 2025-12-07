@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
+require "gum"
+
+puts "=== Choose Demo ==="
+puts
+
+# Single selection
+puts "Pick a color:"
+color = Gum.choose(["red", "green", "blue", "yellow", "purple"])
+puts "You chose: #{color}"
+puts
+
+# Multiple selection with limit
+puts "Pick up to 2 fruits:"
+fruits = Gum.choose(["apple", "banana", "cherry", "date", "elderberry"], limit: 2)
+puts "You chose: #{fruits.inspect}"
+puts
+
+# With header
+puts "With custom header:"
+choice = Gum.choose(["option1", "option2", "option3"], header: "Select an option:")
+puts "You chose: #{choice}"
+puts
+
+# Pre-selected items (requires multi-select mode)
+puts "With pre-selected items (use Tab to toggle, Enter to confirm):"
+selected = Gum.choose(["a", "b", "c", "d", "e"], selected: ["b", "d"], no_limit: true)
+puts "Final selection: #{selected.inspect}"

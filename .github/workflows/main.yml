@@ -1,4 +1,4 @@
-name: Ruby
+name: Build
 
 on:
   push:
@@ -14,12 +14,13 @@ jobs:
     strategy:
       matrix:
         ruby:
-          - "3.4.7"
+          - "3.2"
+          - "3.3"
+          - "3.4"
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -27,5 +28,11 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
 
-      - name: Run the default task
-        run: bundle exec rake
+      - name: Run tests
+        run: bundle exec mtest
+
+      - name: Run Rubocop
+        run: bundle exec rubocop
+
+      - name: Run Steep
+        run: bundle exec steep check

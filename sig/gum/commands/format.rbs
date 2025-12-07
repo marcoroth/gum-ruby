@@ -1,0 +1,47 @@
+# Generated from lib/gum/commands/format.rb with RBS::Inline
+
+module Gum
+  # Format text with markdown, code highlighting, templates, or emojis
+  #
+  # @example Markdown formatting
+  #   Gum.format("# Hello\n- Item 1\n- Item 2")
+  #
+  # @example Code highlighting
+  #   Gum.format(code, type: :code, language: "ruby")
+  #
+  # @example Template formatting
+  #   Gum.format('{{ Bold "Hello" }} {{ Color "99" "0" " World " }}', type: :template)
+  #
+  # @example Emoji formatting
+  #   Gum.format("I :heart: Ruby :gem:", type: :emoji)
+  class Format
+    TYPES: Array[Symbol]
+
+    # Format and render text
+    #
+    # @rbs *text: String -- text content to format (multiple strings joined with newlines)
+    # @rbs type: Symbol | String | nil -- format type (:markdown, :code, :template, :emoji)
+    # @rbs language: String? -- programming language for code highlighting
+    # @rbs theme: String? -- syntax highlighting theme
+    # @rbs return: String? -- formatted text output
+    def self.call: (*String text, ?type: Symbol | String | nil, ?language: String?, ?theme: String?) -> String?
+
+    # @rbs text: String -- markdown text to format
+    # @rbs return: String? -- rendered markdown output
+    def self.markdown: (String text) -> String?
+
+    # @rbs text: String -- source code to highlight
+    # @rbs language: String? -- programming language for highlighting
+    # @rbs theme: String? -- syntax highlighting theme
+    # @rbs return: String? -- syntax-highlighted code output
+    def self.code: (String text, ?language: String?, ?theme: String?) -> String?
+
+    # @rbs text: String -- template string with Termenv helpers
+    # @rbs return: String? -- rendered template output
+    def self.template: (String text) -> String?
+
+    # @rbs text: String -- text with :emoji_name: codes
+    # @rbs return: String? -- text with emojis rendered
+    def self.emoji: (String text) -> String?
+  end
+end
