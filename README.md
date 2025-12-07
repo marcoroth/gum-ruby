@@ -1,10 +1,14 @@
-# Gum::Ruby
+# Gum for Ruby
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gum/ruby`. To experiment with that code, run `bin/console` for an interactive prompt.
+<p>
+  <a href="https://github.com/marcoroth/gum-ruby" target="_blank"><img src="assets/logo.png" alt="Gum Image" width="450" /></a>
+</p>
+
+Ruby wrapper for [Charm's Gum](https://github.com/charmbracelet/gum). A tool for glamorous scripts. This gem bundles the `gum` binary and provides an idiomatic Ruby API for all gum commands.
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Install the gem and add to the application's `Gemfile` by executing:
 
 ```bash
 bundle add gum-ruby
