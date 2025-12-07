@@ -1,0 +1,5 @@
+module Gum
+  module Ruby
+    VERSION: String
+  end
+end
