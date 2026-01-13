@@ -143,9 +143,13 @@ module Gum
       args << "--"
       args.push("bash", "-c", "while [ ! -f #{marker_path} ]; do sleep 0.1; done")
 
-      spinner_pid = Process.fork do
-        exec(Gum.executable, *args.map(&:to_s))
-      end
+      spinner_pid = Process.spawn(
+        Gum.executable, *args.map(&:to_s),
+        in: :close,
+        out: $stdout,
+        err: $stderr,
+        close_others: true
+      )
 
       begin
         result = block.call
