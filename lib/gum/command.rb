@@ -8,10 +8,10 @@ require "open3"
 module Gum
   module Command
     def self.run(*, input: nil, interactive: true)
-      if input && interactive
-        run_interactive_with_input(*, input: input)
-      elsif input
+      if !interactive
         run_non_interactive(*, input: input)
+      elsif input
+        run_interactive_with_input(*, input: input)
       else
         run_interactive(*)
       end
