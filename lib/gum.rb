@@ -31,7 +31,7 @@ module Gum
 
   class << self
     def execute(*args)
-      system(executable, *args.map(&:to_s))
+      system({ "CLICOLOR_FORCE" => "1" }, executable, *args.map(&:to_s))
     end
 
     def platform
