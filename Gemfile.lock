@@ -49,9 +49,10 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    maxitest (6.2.0)
-      minitest (>= 5.20.0, < 5.28.0)
-    minitest (5.27.0)
+    maxitest (7.1.1)
+      minitest (>= 6.0.0, < 6.1.0)
+    minitest (6.0.1)
+      prism (~> 1.5)
     mutex_m (0.3.0)
     parallel (1.27.0)
     parser (3.3.10.0)
@@ -142,7 +143,6 @@ DEPENDENCIES
   gum!
   irb
   maxitest
-  minitest (~> 5.16)
   rake (~> 13.0)
   rbs-inline (~> 0.12)
   rubocop (~> 1.81)
