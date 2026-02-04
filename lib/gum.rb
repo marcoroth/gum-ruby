@@ -31,7 +31,7 @@ module Gum
 
   class << self
     def execute(*args)
-      system(executable, *args.map(&:to_s))
+      system(Command.color_env, executable, *args.map(&:to_s))
     end
 
     def platform

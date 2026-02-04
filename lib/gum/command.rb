@@ -18,7 +18,7 @@ module Gum
     end
 
     def self.run_non_interactive(*args, input:)
-      stdout, stderr, status = Open3.capture3(Gum.executable, *args.map(&:to_s), stdin_data: input)
+      stdout, stderr, status = Open3.capture3(color_env, Gum.executable, *args.map(&:to_s), stdin_data: input)
 
       unless status.success?
         return nil if status.exitstatus == 130 # User cancelled (Ctrl+C)
@@ -33,7 +33,7 @@ module Gum
       tty = File.open("/dev/tty", "r+")
 
       stdout, wait_thread = Open3.pipeline_r(
-        [Gum.executable, *args.map(&:to_s)],
+        [color_env, Gum.executable, *args.map(&:to_s)],
         in: tty,
         err: tty
       )
@@ -48,7 +48,7 @@ module Gum
 
       output
     rescue Errno::ENOENT, Errno::ENXIO, Errno::EIO
-      stdout, stderr, status = Open3.capture3(Gum.executable, *args.map(&:to_s))
+      stdout, stderr, status = Open3.capture3(color_env, Gum.executable, *args.map(&:to_s))
 
       unless status.success?
         return nil if status.exitstatus == 130
@@ -64,6 +64,7 @@ module Gum
       stdout_read, stdout_write = IO.pipe
 
       pid = Process.spawn(
+        color_env,
         Gum.executable, *args.map(&:to_s),
         in: stdin_read,
         out: stdout_write,
@@ -91,7 +92,7 @@ module Gum
     end
 
     def self.run_display_only(*args, input:)
-      IO.popen([Gum.executable, *args.map(&:to_s)], "w") do |io|
+      IO.popen([color_env, Gum.executable, *args.map(&:to_s)], "w") do |io|
         io.write(input)
       end
 
@@ -102,10 +103,10 @@ module Gum
 
     def self.run_with_status(*args, input: nil)
       if input
-        _stdout, _stderr, status = Open3.capture3(Gum.executable, *args.map(&:to_s), stdin_data: input)
+        _stdout, _stderr, status = Open3.capture3(color_env, Gum.executable, *args.map(&:to_s), stdin_data: input)
         status.success?
       else
-        system(Gum.executable, *args.map(&:to_s))
+        system(COLOR_ENV, Gum.executable, *args.map(&:to_s))
       end
     end
 
@@ -154,6 +155,10 @@ module Gum
       }
 
       negatable.fetch(command, []).include?(flag)
+    end
+
+    def self.color_env
+      $stdout.tty? ? { "CLICOLOR_FORCE" => "1" } : {}
     end
   end
 end
