@@ -19,5 +19,7 @@ module Gum
     def self.add_style_args: (untyped args, untyped flag, untyped style_hash) -> untyped
 
     def self.flag_supports_negation?: (untyped command, untyped flag) -> untyped
+
+    def self.color_env: () -> untyped
   end
 end
