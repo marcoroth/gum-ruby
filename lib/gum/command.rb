@@ -7,9 +7,9 @@ require "open3"
 
 module Gum
   module Command
-    def self.run(*, input: nil, interactive: true)
+    def self.run(*, input: nil, interactive: true, output: :stdout)
       if !interactive
-        run_non_interactive(*, input: input)
+        run_non_interactive(*, input: input, output: output)
       elsif input
         run_interactive_with_input(*, input: input)
       else
@@ -17,7 +17,7 @@ module Gum
       end
     end
 
-    def self.run_non_interactive(*args, input:)
+    def self.run_non_interactive(*args, input:, output: :stdout)
       stdout, stderr, status = Open3.capture3(color_env, Gum.executable, *args.map(&:to_s), stdin_data: input)
 
       unless status.success?
@@ -26,7 +26,7 @@ module Gum
         raise Error, "gum #{args.first} failed: #{stderr}" unless stderr.empty?
       end
 
-      stdout.chomp
+      (output == :stderr ? stderr : stdout).chomp
     end
 
     def self.run_interactive(*args)
@@ -106,7 +106,7 @@ module Gum
         _stdout, _stderr, status = Open3.capture3(color_env, Gum.executable, *args.map(&:to_s), stdin_data: input)
         status.success?
       else
-        system(COLOR_ENV, Gum.executable, *args.map(&:to_s))
+        system(color_env, Gum.executable, *args.map(&:to_s))
       end
     end
 

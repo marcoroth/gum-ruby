@@ -35,11 +35,11 @@ module Gum
 
   # Choose from a list of options
   # @see Gum::Choose#call
-  def self.choose: (untyped items, **untyped) -> untyped
+  def self.choose: () -> untyped
 
   # Filter items with fuzzy matching
   # @see Gum::Filter#call
-  def self.filter: (untyped items, **untyped) -> untyped
+  def self.filter: () -> untyped
 
   # Prompt for confirmation
   # @see Gum::Confirm#call
