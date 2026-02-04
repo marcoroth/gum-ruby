@@ -2,9 +2,9 @@
 
 module Gum
   module Command
-    def self.run: (*untyped, ?input: untyped, ?interactive: untyped) -> untyped
+    def self.run: (*untyped, ?input: untyped, ?interactive: untyped, ?output: untyped) -> untyped
 
-    def self.run_non_interactive: (*untyped args, input: untyped) -> untyped
+    def self.run_non_interactive: (*untyped args, input: untyped, ?output: untyped) -> untyped
 
     def self.run_interactive: (*untyped args) -> untyped
 

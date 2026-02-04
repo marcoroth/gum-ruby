@@ -30,7 +30,7 @@ module Gum
     # @rbs formatter: Symbol | String | nil -- log formatter (:text, :json, :logfmt)
     # @rbs prefix: String? -- log message prefix
     # @rbs **fields: untyped -- additional key-value fields for structured logging
-    # @rbs return: String? -- formatted log output
+    # @rbs return: bool -- true if logging succeeded
     def self.call(
       message,
       level: nil,
@@ -57,40 +57,40 @@ module Gum
         args << value.to_s
       end
 
-      Command.run(*args, interactive: false)
+      Command.run_with_status(*args)
     end
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted debug log output
+    # @rbs return: bool -- true if logging succeeded
     def self.debug(message, **fields)
       call(message, level: :debug, **fields)
     end
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted info log output
+    # @rbs return: bool -- true if logging succeeded
     def self.info(message, **fields)
       call(message, level: :info, **fields)
     end
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted warn log output
+    # @rbs return: bool -- true if logging succeeded
     def self.warn(message, **fields)
       call(message, level: :warn, **fields)
     end
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted error log output
+    # @rbs return: bool -- true if logging succeeded
     def self.error(message, **fields)
       call(message, level: :error, **fields)
     end
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted fatal log output
+    # @rbs return: bool -- true if logging succeeded
     def self.fatal(message, **fields)
       call(message, level: :fatal, **fields)
     end

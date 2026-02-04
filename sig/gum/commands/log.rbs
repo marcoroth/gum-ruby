@@ -25,32 +25,32 @@ module Gum
     # @rbs formatter: Symbol | String | nil -- log formatter (:text, :json, :logfmt)
     # @rbs prefix: String? -- log message prefix
     # @rbs **fields: untyped -- additional key-value fields for structured logging
-    # @rbs return: String? -- formatted log output
-    def self.call: (String message, ?level: Symbol | String | nil, ?time: Symbol | String | nil, ?structured: bool?, ?formatter: Symbol | String | nil, ?prefix: String?, **untyped fields) -> String?
+    # @rbs return: bool -- true if logging succeeded
+    def self.call: (String message, ?level: Symbol | String | nil, ?time: Symbol | String | nil, ?structured: bool?, ?formatter: Symbol | String | nil, ?prefix: String?, **untyped fields) -> bool
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted debug log output
-    def self.debug: (String message, **untyped fields) -> String?
+    # @rbs return: bool -- true if logging succeeded
+    def self.debug: (String message, **untyped fields) -> bool
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted info log output
-    def self.info: (String message, **untyped fields) -> String?
+    # @rbs return: bool -- true if logging succeeded
+    def self.info: (String message, **untyped fields) -> bool
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted warn log output
-    def self.warn: (String message, **untyped fields) -> String?
+    # @rbs return: bool -- true if logging succeeded
+    def self.warn: (String message, **untyped fields) -> bool
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted error log output
-    def self.error: (String message, **untyped fields) -> String?
+    # @rbs return: bool -- true if logging succeeded
+    def self.error: (String message, **untyped fields) -> bool
 
     # @rbs message: String -- log message text
     # @rbs **fields: untyped -- additional key-value fields
-    # @rbs return: String? -- formatted fatal log output
-    def self.fatal: (String message, **untyped fields) -> String?
+    # @rbs return: bool -- true if logging succeeded
+    def self.fatal: (String message, **untyped fields) -> bool
   end
 end
